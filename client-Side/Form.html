@@ -15,8 +15,9 @@
             <h1>Student Registration Form</h1>
             <h3>Register/Login</h3>
         </header>
+        
 
-        <form class="formRegistration">
+        <form id="detailsForm" class="formRegistration">
             <div class="mb-3 mt-3">
                 <label for="name">Name:</label>
                 <input type="text" class="form-control" id="name" placeholder="Enter full Name" name="name" required>
@@ -105,26 +106,14 @@
 <script>
 
 document.addEventListener('DOMContentLoaded', () => {
-const form = document.querySelectorAll('.container .formRegistration');
-forms.forEach(form => {
+const form = document.getElementById('detailsForm'); 
+
     form.addEventListener('register', async (e) => {
         e.preventDefault();
 
         const formData = new FormData(e.target);
-
-                // Append form data
-                formData.append('name', formData.get('name'));
-        formData.append('email', formData.get('email'));
-        formData.append('phone', formData.get('phone'))
-        formData.append('address', formData.get('address'));
-        formData.append('gender', formData.get('gender'));
-        formData.append('DOB', formData.get('DOB'));
-        formData.append('state', formData.get('state'));
-        formData.append('regNo', formData.get('regNo'));
-        formData.append('password', formData.get('password'));
-
         try {
-            const response = await  fetch('https://localhost:4000/user/register', {
+            const response = await fetch('https://localhost:4000/user/register', {
             method: 'POST',
             body: formData
             });
@@ -138,7 +127,7 @@ forms.forEach(form => {
             console.error('Error submitting form:', error);
             }
     });
-});
+
 });
     
 

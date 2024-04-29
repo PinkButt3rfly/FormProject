@@ -1,10 +1,10 @@
 const express = require('express')
-const studentcontroller = require('../controllers/studentController')
+const {registerStudent} = require('../controllers/studentController')
 
 
 const router = express.Router()
 
-router.post('register', studentcontroller.registerStudent)
+router.post('register', registerStudent)
 
 // router.post('/register', (req, res) => {
 //     const formData = req.body;

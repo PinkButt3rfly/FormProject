@@ -10,7 +10,7 @@ const Student = require('../models/studentModel')
 
 
 
-exports.registerStudent =  async function(req, res) {
+registerStudent =  async function(req, res) {
     const student = await Student.create(req.body);
 
 
@@ -18,6 +18,9 @@ exports.registerStudent =  async function(req, res) {
     res.json('Registration successfull');
 };
 
+module.exports = {
+    registerStudent
+}
 
 // // Root URL
 // exports.path = ('/register', (req, res) => {
